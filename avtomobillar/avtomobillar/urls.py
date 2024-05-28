@@ -16,15 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import index, BrandListAPIView, BrandRetrieveAPIView, BrandListCreateAPIView, ModelListAPIView, ModelRetrieveAPIView, ModelListCreateAPIView
+from app.views import index, ModelsAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('brands_list/v1/', BrandListAPIView.as_view(), name='brands'),
-    path('brand/v1/<int:pk>/', BrandRetrieveAPIView.as_view(), name='brand'),
-    path('brands/v1/create/', BrandListCreateAPIView.as_view(), name='brands_create'),
-    path('models_list/v1/', ModelListAPIView.as_view(), name='models'),
-    path('model/v1/<int:pk>/', ModelRetrieveAPIView.as_view(), name='model'),
-    path('model/v1/create/', ModelListCreateAPIView.as_view(), name='model_create'),
+    path('api/v1/models/', ModelsAPIView.as_view())
+    # path('brands_list/v1/', BrandListAPIView.as_view(), name='brands'),
+    # path('brand/v1/<int:pk>/', BrandRetrieveAPIView.as_view(), name='brand'),
+    # path('brands/v1/create/', BrandListCreateAPIView.as_view(), name='brands_create'),
+    # path('models_list/v1/', ModelListAPIView.as_view(), name='models'),
+    # path('model/v1/<int:pk>/', ModelRetrieveAPIView.as_view(), name='model'),
+    # path('model/v1/create/', ModelListCreateAPIView.as_view(), name='model_create'),
 ]
